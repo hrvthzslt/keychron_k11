@@ -15,3 +15,8 @@ k11-compile: # Compile custom keychron k11 max ansi encoder rgb layout
 	qmk config user.qmk_home=$(keychron_path)
 	qmk userspace-add -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
 	qmk compile -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
+
+k11-flash: # Flash custom keychron k11 max ansi encoder rgb layout
+	qmk config user.qmk_home=$(keychron_path)
+	qmk userspace-add -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
+	qmk flash -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
