@@ -1,49 +1,27 @@
-# QMK Layouts
+# Keychron K11 Custom Layout with QMK
 
-Automating the installation and setup of QMK on **Debian**-based systems, and flashing firmware with my own **custom keymap** layouts.
+Separate _userspace_ repository from [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts) for **Keychron K11 Max**, for handling fork repository and _userspace_ differences.
 
-## Install QMK
+## Install
 
-Install QMK firmware, then run `qmk setup` to install the necessary dependencies.
+For installing QMK itself check: [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts)
+
+Clone Keychron's QMK firmware fork for k11 source, and setup this repository as _userspace_.
 
 ```bash
 make install
 ```
 
-Set up this repository as [_userspace_](https://docs.qmk.fm/newbs_external_userspace#external-userspace-repository-setup-forked-on-github) before compiling any firmware, for the accessibility of the layouts.
-
-```bash
-make setup
-```
-
-## Keychron Q8-F1 (ISO Encoder)
-
-![Keyhcron Q8-F1](assets/q8-f1.png)
+## Keychron K11 Max (ANSI Encoder RGB)
 
 Compile the keyboard firmware with the new layout.
 
 ```bash
-make q8-compile
+make k11-compile
 ```
 
-Flash the firmware to the keyboard. [Factory reset guide](https://keychron.com.au/blogs/archived/how-to-factory-reset-or-flash-firmware-for-your-keychron-q8-keyboard).
+Flash the firmware to the keyboard.
 
 ```bash
-make q8-flash
-```
-
-## Keychron Q11-M3 (ISO Encoder)
-
-![Keyhcron Q11-M3](assets/q11-m3.png)
-
-Compile the keyboard firmware with the new layout.
-
-```bash
-make q11-compile
-```
-
-Flash the firmware to the keyboard. [Factory reset guide](https://keychron.ca/pages/how-to-factory-reset-or-flash-firmware-for-your-keychron-q11-keyboard).
-
-```bash
-make q11-flash
+make k11-flash
 ```
