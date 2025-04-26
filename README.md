@@ -1,12 +1,12 @@
 # Keychron K11 Custom Layout with QMK
 
-Separate _userspace_ repository from [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts) for **Keychron K11 Max**, for handling fork repository and _userspace_ differences.
+This is a separate _userspace_ repository from [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts) for the **Keychron K11 Max**. It handles differences between the forked repository and _userspace_.
 
-## Install
+## Installation
 
-For installing QMK itself check: [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts)
+To install QMK itself, see: [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts).
 
-Clone Keychron's QMK firmware fork for k11 source, and setup this repository as _userspace_.
+Clone Keychron's QMK firmware fork for the K11 source, and set up this repository as _userspace_.
 
 ```bash
 make install
