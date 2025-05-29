@@ -4,6 +4,7 @@ enum custom_keycodes {
     MA_SUP3,
     MA_SUP4,
     MA_RES,
+    MA_LCK,
     C_LEFT,
     C_RIGHT,
 };
@@ -19,6 +20,19 @@ bool press_super(uint16_t keycode, keyrecord_t *record) {
     } else {
         unregister_code(keycode);
         unregister_code(KC_LGUI);
+    }
+    return true;
+}
+
+bool press_scrlk(keyrecord_t *record) {
+    if (record->event.pressed) {
+        register_code(KC_LGUI);
+        register_code(KC_LSFT);
+        register_code(KC_S);
+    } else {
+        unregister_code(KC_LGUI);
+        unregister_code(KC_LSFT);
+        unregister_code(KC_S);
     }
     return true;
 }
@@ -62,6 +76,9 @@ void process_macros(uint16_t keycode, keyrecord_t *record) {
             break;
         case MA_RES:
             press_reset(record);
+            break;
+        case MA_LCK:
+            press_scrlk(record);
             break;
         case C_LEFT:
             press_ctrl_button(KC_LEFT, record);
