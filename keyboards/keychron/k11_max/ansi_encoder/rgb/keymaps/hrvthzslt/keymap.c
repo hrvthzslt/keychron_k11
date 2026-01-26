@@ -25,7 +25,8 @@
 enum layers{
     MAC_B,
     PC_B,
-    NAV,
+    PC_N,
+    MAC_N,
     MAC_F,
     PC_F,
     FUN,
@@ -36,21 +37,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_B] = LAYOUT_69_ansi(
         KC_GRV,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,     KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
-        LT_TNAV, KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          MA_LCK,
+        LT_MNAV, KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          MA_LCK,
         MT_CTES, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,    KC_H,     KC_J,     KC_K,    KC_L,    KC_SCLN,  KC_QUOT,            KC_ENT,           KC_PSCR,
         KC_LSFT,           KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     MO(MAC_F),KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, KC_UP,
         KC_LCTL, KC_LALT,  MT_GUBS,           MT_ALSP,          LT_DFUN,  MO(FUN),           MT_ALEN,           KC_LGUI,            KC_LEFT, KC_DOWN, KC_RGHT),
 
     [PC_B] = LAYOUT_69_ansi(
         KC_GRV,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,     KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
-        LT_TNAV, KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          MA_LCK,
+        LT_PNAV, KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          MA_LCK,
         MT_CTES, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,    KC_H,     KC_J,     KC_K,    KC_L,    KC_SCLN,  KC_QUOT,            KC_ENT,           KC_PSCR,
         KC_LSFT,           KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     MO(MAC_F),KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT, KC_UP,
         KC_LCTL, KC_LALT,  MT_GUBS,           MT_ALSP,          LT_DFUN,  MO(FUN),           MT_ALEN,           KC_LGUI,            KC_LEFT, KC_DOWN, KC_RGHT),
 
-    [NAV] = LAYOUT_69_ansi(
+    [PC_N] = LAYOUT_69_ansi(
         KC_GRV,  KC_BRID,  KC_BRIU, KC_MCTRL, KC_LNPAD,RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          RGB_TOG,
         _______, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   _______, MA_SUP4,  MA_SUP1, MA_SUP2, MA_SUP3, KC_PGUP,  _______,  _______,  _______,          _______,
+        RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, KC_LEFT,           KC_DOWN, KC_UP,   KC_RGHT,  _______,  _______,  _______,          _______,
+        _______,           RGB_RMOD, RGB_VAD, RGB_HUD, RGB_SAD, _______,  _______, KC_PGDN, KC_HOME, C_LEFT,   C_RIGHT,  KC_END,   _______, _______,
+        _______, _______,  _______,           _______,          KC_DEL,   _______,          _______,           _______,            _______, KC_PGDN, _______),
+
+    [MAC_N] = LAYOUT_69_ansi(
+        KC_GRV,  KC_BRID,  KC_BRIU, KC_MCTRL, KC_LNPAD,RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          RGB_TOG,
+        _______, BT_HST1,  BT_HST2,  BT_HST3, P2P4G,   _______, MA_ALT4,  MA_ALT1, MA_ALT2, MA_ALT3, KC_PGUP,  _______,  _______,  _______,          _______,
         RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, KC_LEFT,           KC_DOWN, KC_UP,   KC_RGHT,  _______,  _______,  _______,          _______,
         _______,           RGB_RMOD, RGB_VAD, RGB_HUD, RGB_SAD, _______,  _______, KC_PGDN, KC_HOME, C_LEFT,   C_RIGHT,  KC_END,   _______, _______,
         _______, _______,  _______,           _______,          KC_DEL,   _______,          _______,           _______,            _______, KC_PGDN, _______),
@@ -81,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [MAC_B] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [PC_B] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [NAV]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [PC_N]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [MAC_F]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [PC_F]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [FUN]	   = {ENCODER_CCW_CW(_______, _______)},
