@@ -13,6 +13,8 @@ enum custom_keycodes {
     C_RIGHT,
     A_LEFT,
     A_RIGHT,
+    M_PRINT,
+    M_LOCK
 };
 
 #include "timer.h"
@@ -82,6 +84,32 @@ bool press_alt_button(uint16_t keycode, keyrecord_t *record) {
     return press_mod_button(KC_LALT, keycode, record);
 }
 
+bool press_mac_print_screen(keyrecord_t *record) {
+    if (record->event.pressed) {
+        register_code(KC_LSFT);
+        register_code(KC_LGUI);
+        register_code(KC_2);
+    } else {
+        unregister_code(KC_2);
+        unregister_code(KC_LGUI);
+        unregister_code(KC_LSFT);
+    }
+    return true;
+}
+
+bool press_mac_lock_screen(keyrecord_t *record) {
+    if (record->event.pressed) {
+        register_code(KC_LCTL);
+        register_code(KC_LGUI);
+        register_code(KC_Q);
+    } else {
+        unregister_code(KC_Q);
+        unregister_code(KC_LGUI);
+        unregister_code(KC_LCTL);
+    }
+    return true;
+}
+
 void process_macros(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MA_SUP1:
@@ -125,6 +153,12 @@ void process_macros(uint16_t keycode, keyrecord_t *record) {
             break;
         case A_RIGHT:
             press_alt_button(KC_RGHT, record);
+            break;
+        case M_PRINT:
+            press_mac_print_screen(record);
+            break;
+        case M_LOCK:
+            press_mac_lock_screen(record);
             break;
     }
 }
