@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [PC_N]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [MAC_F]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [PC_F]  = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [FUN]	   = {ENCODER_CCW_CW(_______, _______)},
+        [FUN]	   = {ENCODER_CCW_CW(KC_BRID, KC_BRIU)},
     };
 #endif // ENCODER_MAP_ENABLE
 
