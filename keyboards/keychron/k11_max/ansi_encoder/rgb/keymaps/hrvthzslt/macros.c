@@ -14,7 +14,8 @@ enum custom_keycodes {
     A_LEFT,
     A_RIGHT,
     M_PRINT,
-    M_LOCK
+    M_LOCK,
+    M_LANG
 };
 
 #include "timer.h"
@@ -110,6 +111,19 @@ bool press_mac_lock_screen(keyrecord_t *record) {
     return true;
 }
 
+bool press_mac_language_switch(keyrecord_t *record) {
+    if (record->event.pressed) {
+        register_code(KC_LSFT);
+        register_code(KC_LGUI);
+        register_code(KC_L);
+    } else {
+        unregister_code(KC_L);
+        unregister_code(KC_LGUI);
+        unregister_code(KC_LSFT);
+    }
+    return true;
+}
+
 void process_macros(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MA_SUP1:
@@ -159,6 +173,9 @@ void process_macros(uint16_t keycode, keyrecord_t *record) {
             break;
         case M_LOCK:
             press_mac_lock_screen(record);
+            break;
+        case M_LANG:
+            press_mac_language_switch(record);
             break;
     }
 }
