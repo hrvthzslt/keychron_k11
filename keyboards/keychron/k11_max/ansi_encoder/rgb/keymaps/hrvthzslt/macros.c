@@ -111,7 +111,7 @@ bool press_mac_lock_screen(keyrecord_t *record) {
     return true;
 }
 
-bool press_mac_language_switch(keyrecord_t *record) {
+bool press_language_switch(keyrecord_t *record) {
     if (record->event.pressed) {
         register_code(KC_LSFT);
         register_code(KC_LGUI);
@@ -175,7 +175,7 @@ void process_macros(uint16_t keycode, keyrecord_t *record) {
             press_mac_lock_screen(record);
             break;
         case M_LANG:
-            press_mac_language_switch(record);
+            press_language_switch(record);
             break;
     }
 }
