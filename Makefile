@@ -14,6 +14,7 @@ setup-venv: # Setup Python virtual environment for QMK
 install: # Install and setup keychron qmk repo
 	-git clone -b wireless_playground https://github.com/Keychron/qmk_firmware.git $(keychron_path)
 	-cd $(keychron_path) && git remote add upstream https://github.com/qmk/qmk_firmware.git
+	-cd $(keychron_path) && make git-submodule
 	@echo "Setting up Python virtual environment for QMK..."
 	qmk setup
 	@$(MAKE) setup-venv
