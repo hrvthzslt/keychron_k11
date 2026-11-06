@@ -98,13 +98,11 @@ bool press_mac_lock_screen(keyrecord_t *record) {
 
 bool press_language_switch(keyrecord_t *record) {
     if (record->event.pressed) {
-        register_code(KC_LSFT);
         register_code(KC_LGUI);
-        register_code(KC_L);
+        register_code(KC_TAB);
     } else {
-        unregister_code(KC_L);
+        unregister_code(KC_TAB);
         unregister_code(KC_LGUI);
-        unregister_code(KC_LSFT);
     }
     return true;
 }

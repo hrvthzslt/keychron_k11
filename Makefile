@@ -19,12 +19,12 @@ install: # Install and setup keychron qmk repo
 	qmk setup
 	@$(MAKE) setup-venv
 
-k11-compile: # Compile custom keychron k11 max ansi encoder rgb layout
+compile: # Compile custom keychron k11 max ansi encoder rgb layout
 	$(venv_activate) && qmk config user.qmk_home=$(keychron_path)
 	$(venv_activate) && qmk userspace-add -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
 	$(venv_activate) && qmk compile -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
 
-k11-flash: # Flash custom keychron k11 max ansi encoder rgb layout
+flash: # Flash custom keychron k11 max ansi encoder rgb layout
 	$(venv_activate) && qmk config user.qmk_home=$(keychron_path)
 	$(venv_activate) && qmk userspace-add -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
 	$(venv_activate) && qmk flash -kb keychron/k11_max/ansi_encoder/rgb -km hrvthzslt
