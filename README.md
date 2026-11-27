@@ -11,7 +11,7 @@ This is a separate _userspace_ repository from [QMK Layouts](https://github.com/
 
 To install QMK itself, see: [QMK Layouts](https://github.com/hrvthzslt/qmk-layouts).
 
-Clone Keychron's QMK firmware fork for the K11 source, set up this repository as _userspace_, and create a Python virtual environment for QMK:
+Clone Keychron's QMK firmware fork for the K11 source and set it up with the installed QMK CLI:
 
 ```bash
 make install
@@ -19,9 +19,8 @@ make install
 
 This will:
 1. Clone the Keychron QMK firmware repository
-2. Set up a Python virtual environment
-3. Install all required Python dependencies
-4. Configure QMK to use the Keychron fork
+2. Set up the fork and its dependencies with `qmk setup`
+3. Configure QMK to use the Keychron fork
 
 ## Keychron K11 Max (ANSI Encoder RGB)
 
@@ -39,10 +38,4 @@ make k11-flash
 
 ## Troubleshooting
 
-If you encounter Python dependency issues, you can manually set up the virtual environment:
-
-```bash
-make setup-venv
-```
-
-This will create a Python virtual environment with all the necessary dependencies installed.
+If QMK reports missing firmware dependencies, rerun `qmk setup -H ~/qmk_firmware_keychron`.
